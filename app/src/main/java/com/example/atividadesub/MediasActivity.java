@@ -22,10 +22,9 @@ public class MediasActivity extends AppCompatActivity {
         spDisciplina = findViewById(R.id.sp_disciplina);
         tblMedias = findViewById(R.id.tbl_medias);
 
-        // Inicializar banco de dados
         database = openOrCreateDatabase("CadastroAlunos", MODE_PRIVATE, null);
 
-        // Preencher spinner com disciplinas
+
         carregarDisciplinas();
 
         spDisciplina.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -36,7 +35,7 @@ public class MediasActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Nada
+
             }
         });
     }
@@ -55,7 +54,7 @@ public class MediasActivity extends AppCompatActivity {
     }
 
     private void carregarMedias(String disciplina) {
-        // Limpar tabela
+
         tblMedias.removeViews(1, tblMedias.getChildCount() - 1);
 
         Cursor cursor = database.rawQuery(
