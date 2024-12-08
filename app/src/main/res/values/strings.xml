@@ -1,0 +1,7 @@
+<resources>
+    <string name="disciplina_prompt">Disciplina</string>
+    <string name="app_name">AtividadeSub</string>
+    <string name="bimestre_prompt">Bimestre</string>
+    <string name="selecione_disciplina_prompt">Selecione a Disciplina</string>
+    <string name="selecione_aluno_prompt">Selecione o Aluno</string>
+</resources>

@@ -1,0 +1,63 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/et_ra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="RA" />
+
+        <EditText
+            android:id="@+id/et_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome" />
+
+        <Spinner
+            android:id="@+id/spinnerDisciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/disciplina_prompt"
+            android:entries="@array/disciplinas" />
+
+
+        <EditText
+            android:id="@+id/et_nota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nota" />
+
+        <Spinner
+            android:id="@+id/spinnerBimestre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/bimestre_prompt"
+            android:entries="@array/bimestres" />
+
+
+        <Button
+            android:id="@+id/btn_adicionar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicionar" />
+
+        <Button
+            android:id="@+id/btn_ver_notas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver Notas" />
+
+        <Button
+            android:id="@+id/btn_ver_medias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver Médias" />
+    </LinearLayout>
+</ScrollView>

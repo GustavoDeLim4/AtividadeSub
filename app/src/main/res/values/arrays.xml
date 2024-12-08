@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="disciplinas" />
+    <string-array name="bimestres" />
+    <string-array name="alunos" />
+</resources>
