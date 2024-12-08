@@ -24,10 +24,9 @@ public class NotasActivity extends AppCompatActivity {
         spAluno = findViewById(R.id.sp_aluno);
         tblNotas = findViewById(R.id.tbl_notas);
 
-        // Inicializar banco de dados
+
         database = openOrCreateDatabase("CadastroAlunos", MODE_PRIVATE, null);
 
-        // Preencher spinner com alunos
         carregarAlunos();
 
         spAluno.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -38,7 +37,7 @@ public class NotasActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Nada
+
             }
         });
     }
@@ -57,7 +56,7 @@ public class NotasActivity extends AppCompatActivity {
     }
 
     private void carregarNotas(String alunoNome) {
-        // Limpar tabela
+
         tblNotas.removeViews(1, tblNotas.getChildCount() - 1);
 
         Cursor cursor = database.rawQuery(
