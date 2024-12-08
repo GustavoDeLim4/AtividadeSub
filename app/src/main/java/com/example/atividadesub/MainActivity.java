@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar os componentes
+
         etRA = findViewById(R.id.et_ra);
         etNome = findViewById(R.id.et_nome);
         etNota = findViewById(R.id.et_nota);
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnVerNotas = findViewById(R.id.btn_ver_notas);
         btnVerMedias = findViewById(R.id.btn_ver_medias);
 
-        // Configurar Spinner
+
         ArrayAdapter<CharSequence> disciplinaAdapter = ArrayAdapter.createFromResource(this,
                 R.array.disciplinas, android.R.layout.simple_spinner_item);
         disciplinaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
         bimestreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spBimestre.setAdapter(bimestreAdapter);
 
-        // Inicializar banco de dados
+
         database = openOrCreateDatabase("CadastroAlunos", MODE_PRIVATE, null);
         criarTabelas();
 
-        // Ação do botão Adicionar
+
         btnAdicionar.setOnClickListener(view -> adicionarNota());
 
-        // Navegação
+
         btnVerNotas.setOnClickListener(view -> startActivity(new Intent(this, NotasActivity.class)));
         btnVerMedias.setOnClickListener(view -> startActivity(new Intent(this, MediasActivity.class)));
     }
@@ -86,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
         double nota = Double.parseDouble(notaStr);
 
-        // Verificar se aluno já existe
+
         long alunoId = inserirOuBuscarAluno(ra, nome);
 
-        // Inserir nota
+
         database.execSQL("INSERT INTO Nota (aluno_id, disciplina, nota, bimestre) VALUES (?, ?, ?, ?)",
                 new Object[]{alunoId, disciplina, nota, bimestre});
 
@@ -97,14 +97,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private long inserirOuBuscarAluno(String ra, String nome) {
-        // Inserir aluno ou ignorar se já existir
+
         SQLiteStatement stmt = database.compileStatement(
                 "INSERT OR IGNORE INTO Aluno (ra, nome) VALUES (?, ?)");
         stmt.bindString(1, ra);
         stmt.bindString(2, nome);
         long idInserido = stmt.executeInsert();
 
-        // Se não foi inserido, buscar o ID do aluno existente
+
         if (idInserido == -1) {
             Cursor cursor = database.rawQuery("SELECT id FROM Aluno WHERE ra = ?", new String[]{ra});
             if (cursor.moveToFirst()) {
